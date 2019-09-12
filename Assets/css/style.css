@@ -1,0 +1,15 @@
+.crystalpic {
+    width: 50%;
+}
+
+.header{
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: purple;
+}
+
+.instructions {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: bold;
+}

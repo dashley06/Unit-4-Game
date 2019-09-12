@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Crystal Game</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/css/style.css">
     <link rel="stylesheet" href="./Assets/css/reset.css">
@@ -13,45 +12,63 @@
 <body>
         <div class="header">
                 <h1 class="text-center">Crystal Game</h1>
-                <h3 class="text-center">Click on a Crystal!</h3>
+                <hr>
+        </div>
+        <div>
+                <h3 class="text-center instructions">Instructions to play the game:</h3>
+                <br>
+                <ol class= "text-center instructions">
+                  <li>1. You will be given a random number at the start of the game.</li>
+			            <li>2. By clicking on one of the four crystals, you will add points to your total score.</li>
+			            <li>3. You win when your total score matches the random number.</li>
+			            <li>4. You lose if your total score goes above the random number.</li>
+                </ol>
+            
+          
         </div>
             
         <div class="container">
                 <div class="row">
                       <div class="card-body col-lg-6">
-                        <button id="crystal1" class="btn btn-primary number" value="1"><span>1</span></button>
-                        <button id="crystal2" class="btn btn-primary number" value="2"><span>2</span></button>
+                        <img class="crystalpic" id="crystal1" src="./Assets/Images/crystalblue.jpg" alt="blue crystal">
+                      </div>
+                      <div class="card-body col-lg-6">
+                        <img class="crystalpic" id="crystal2" src="./Assets/Images/crystalpink.jpg" alt="pink crystal">
                       </div>
                 </div>
             
                 <div class="row">
                       <div class="card-body col-lg-6">
-                        <button id="crystal3" class="btn btn-primary number" value="3"><span>3</span></button>
-                        <button id="crystal4" class="btn btn-primary number" value="4"><span>4</span></button>
+                        <img class="crystalpic" id="crystal3" src="./Assets/Images/crystalsrainbow.jpg" alt="rainbow crystal">
+                      </div>
+                      <div class="card-body col-lg-6">
+                        <img class="crystalpic" id="crystal4" src="./Assets/Images/crystalclear.jpg" alt="clear crystal">
                       </div>
                 </div>
             
                 <div class="row">
                         <div class="card-body col-lg-6">
-                          <p class="random"> Random Number Selected <span>#</span></p>
+                          <p >Random Number Selected: <span id="random"></span></span></p>
                         </div>
                         <div class="card-body col-lg-6">
-                          <p class="userScore">Total Score: <span>#</span></p>
+                          <p >Total Score: <span id="userScore"></span></p>
                         </div>
                 </div>
             
             
                 <div class="row">
                         <div class="card-body col-lg-6">
-                          <p class="Wins"> Games Won <span>#</span></p>
+                          <p> Games Won: <span id="wins">#</span></p>
                         </div>
                         <div class="card-body col-lg-6">
-                          <p class="Loss"> Games Lost <span>#</span></p>
+                          <p> Games Lost: <span id="loss">#</span></p>
                         </div>
                 </div>
          </div>
-            
-<script type="text/javascript">
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         <script type="text/javascript" src="./Assets/Javascript/game.js"></script>
+</body>
+</html>          
 
 
 
