@@ -9,14 +9,15 @@ $(document).ready(function() {
 
 //function to restart game
 function restart (){
-randomNum = Math.floor((Math.random()* 120) + 19);
-    $("#random").text(randomNum);
-crystOneNum= "";
-crystTwoNum= "";
-crystThreeNum= "";
-crystFourNum= "";
-x = 0;
-$("#userScore").text("");
+    randomNum = Math.floor((Math.random()* 120) + 19);
+        $("#random").text(randomNum);
+    crystOneNum= Math.floor((Math.random()* 12) + 1);;
+    crystTwoNum= Math.floor((Math.random()* 12) + 1);;
+    crystThreeNum= Math.floor((Math.random()* 12) + 1);;
+    crystFourNum= Math.floor((Math.random()* 12) + 1);;
+    x = 0;
+    totalSum=[];
+    $("#userScore").text("");
 }
     
 //random # that computer chooses
@@ -48,7 +49,7 @@ $("#crystal1").on("click", function() {
     addTogether();
     $("#userScore").text(x);
     evaluateWin();
-    //console.log(totalSum);
+    console.log(totalSum);
   });
 
 $("#crystal2").on("click", function() {
@@ -56,7 +57,7 @@ $("#crystal2").on("click", function() {
     addTogether();
     $("#userScore").text(x);
     evaluateWin(); 
-    //console.log(totalSum); 
+    console.log(totalSum); 
   });
 
   $("#crystal3").on("click", function() {
@@ -64,7 +65,7 @@ $("#crystal2").on("click", function() {
     addTogether();
     $("#userScore").text(x);
     evaluateWin();
-    //console.log(totalSum);
+    console.log(totalSum);
     
   });
 
@@ -73,27 +74,27 @@ $("#crystal2").on("click", function() {
     addTogether();
     $("#userScore").text(x);
     evaluateWin();
-    //console.log(totalSum);
+    console.log(totalSum);
   });
 
   
 function addTogether(){
     for (var i = 0; i < totalSum.length; i++) {
     x += totalSum[i];
-    console.log(x);
+    //console.log(x);
   }
 }
 function evaluateWin() {
     if(randomNum === x){
         userWins++;
         $("#wins").text(userWins);
-        alert("Yay! You Won!");
+        alert("Yay! You Won!Your total score is: " + x);
         restart();
     }
    else if (randomNum < x){
-        $("#userScore").text(x);
-        userLoss++;
-        alert("Awww....You Lost");
+       userLoss++;
+        $("#loss").text(userLoss);
+        alert("Awww....You Lost. Your total score is: " + x);
         restart();
     }
   }
