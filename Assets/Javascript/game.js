@@ -1,65 +1,100 @@
-var crystal1 = document.getElementById("crystal1");
-var crystal2 = document.getElementById("crystal2");
-var crystal3 = document.getElementById("crystal3");
-var crystal4 = document.getElementById("crystal4");
-var crystalpic = document.getElementsByClassName("crystalpic");
 
-var randomNum = document.getElementById("random");
-var userScore = document.getElementById("userScore");
-var userWins = document.getElementById("wins");
-var userLoss = document.getElementById("loss");
+var userLoss=0;
+var userWins=0;
+var totalSum= [];
+var x = 0;
 
 //document ready
 $(document).ready(function() {
 
+//function to restart game
+function restart (){
+randomNum = Math.floor((Math.random()* 120) + 19);
+    $("#random").text(randomNum);
+crystOneNum= "";
+crystTwoNum= "";
+crystThreeNum= "";
+crystFourNum= "";
+x = 0;
+$("#userScore").text("");
+}
+    
 //random # that computer chooses
 randomNum = Math.floor((Math.random()* 120) + 19);
 $("#random").text(randomNum);
 
-//random numbers for each crystal
+//assign random numbers for each crystal
     var crystOneNum = Math.floor((Math.random()* 12) + 1);
     $("#crystal1").text(crystOneNum);
-    //console.log(crystOneNum);
+    console.log(crystOneNum);
 
     var crystTwoNum = Math.floor((Math.random()* 12) + 1);
     $("#crystal2").text(crystTwoNum);
-    //console.log(crystTwoNum);
+    console.log(crystTwoNum);
 
     var crystThreeNum = Math.floor((Math.random()* 12) + 1);
     $("#crystal3").text(crystThreeNum);
-    //console.log(crystThreeNum);
+    console.log(crystThreeNum);
 
     var crystFourNum = Math.floor((Math.random()* 12) + 1);
-    $("#random").text(crystFourNum);
-    //console.log(crystFourNum);
+    $("#crystal4").text(crystFourNum);
+    console.log(crystFourNum);
 
-//on-click event for each crystal image
+
+   
+//on-click event for each crystal image, adds to userScore for each click
 $("#crystal1").on("click", function() {
-    var newNumOne = crystOneNum += randomNum; 
-    console.log("you clicked" + newNumOne);
-
+    totalSum.push(crystOneNum);
+    addTogether();
+    $("#userScore").text(x);
+    evaluateWin();
+    //console.log(totalSum);
   });
 
 $("#crystal2").on("click", function() {
-    var newNumTwo = crystTwoNum += randomNum; 
-    console.log("you clicked" + newNumTwo);
-
+    totalSum.push(crystTwoNum);
+    addTogether();
+    $("#userScore").text(x);
+    evaluateWin(); 
+    //console.log(totalSum); 
   });
 
   $("#crystal3").on("click", function() {
-    var newNumThree = crystThreeNum += randomNum; 
-    console.log("you clicked" + newNumThree);
-
+    totalSum.push(crystThreeNum); 
+    addTogether();
+    $("#userScore").text(x);
+    evaluateWin();
+    //console.log(totalSum);
+    
   });
 
   $("#crystal4").on("click", function() {
-    var newNumFour = crystFourNum += randomNum; 
-    console.log("you clicked" + newNumFour);
-
+    totalSum.push(crystFourNum); 
+    addTogether();
+    $("#userScore").text(x);
+    evaluateWin();
+    //console.log(totalSum);
   });
-//need a variable for user total
-//if then loop for each crystal newNum === user total
-//need loop for a win and push win
-//need loop for a loss and push loss
 
+  
+function addTogether(){
+    for (var i = 0; i < totalSum.length; i++) {
+    x += totalSum[i];
+    console.log(x);
+  }
+}
+function evaluateWin() {
+    if(randomNum === x){
+        userWins++;
+        $("#wins").text(userWins);
+        alert("Yay! You Won!");
+        restart();
+    }
+   else if (randomNum < x){
+        $("#userScore").text(x);
+        userLoss++;
+        alert("Awww....You Lost");
+        restart();
+    }
+  }
 });
