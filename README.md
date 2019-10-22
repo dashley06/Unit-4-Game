@@ -7,3 +7,5 @@ You will be given a random number at the start of the game.
 By clicking on one of the four crystals, you will add points to your total score.
 You win when your total score matches the random number.
 You lose if your total score goes above the random number.
+
+Link to the site deployment on GitHub pages: https://dashley06.github.io/Unit-4-Game/
